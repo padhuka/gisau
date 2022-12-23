@@ -115,9 +115,11 @@ class AirbaseController extends Controller
      */
     public function edit(Airbase $airbase)
     {
+        $countries = Country::orderby('name_country','ASC')->get();
         $airbase = Airbase::findOrFail($airbase->id);
         return view('airbase.edit',[
-            'airbase' => $airbase
+            'airbase' => $airbase,
+            'countries' => $countries
         ]);
     }
 

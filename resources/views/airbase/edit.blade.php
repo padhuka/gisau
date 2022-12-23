@@ -24,7 +24,7 @@
                                                 <div class="page-header-title">
                                                     <div class="d-inline">
                                                         <!--<h4>Peta</h4>-->
-                                                        <h4>Tambah Pangkalan Udara</h4>
+                                                        <h4>Ubah Pangkalan Udara</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -68,10 +68,12 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Negara</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="country" value="{{ $airbase->country_id }}" @error('country') is-invalid @enderror id="">
-                                                                @error('country')
-                                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                                @enderror
+                                                                <select class="form-control" name="country">
+                                                                    <option value="">Pilih Negara</option>
+                                                                    @foreach ($countries as $country)
+                                                                        <option value="{{$country->id}}" {{ $country->id == $airbase->country_id ? 'selected' : '' }}>{{$country->name_country}}</option>
+                                                                    @endforeach
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -246,5 +248,3 @@
         });
     </script>
 @endpush
-
-

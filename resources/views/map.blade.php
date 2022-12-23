@@ -1,13 +1,16 @@
 @extends('layout.app')
 
 @push('styles')
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-        crossorigin="" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
     <link rel="stylesheet" href="{{ asset('leafletjs/MarkerCluster.Default.css')}}" />
     <link rel="stylesheet" href="{{ asset('leafletjs/leaflet.groupedlayercontrol.css')}}" />
     <link rel="stylesheet" href="{{ asset('leafletjs/leaflet-search.css')}}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link rel="stylesheet" href="{{ asset('Leaflet.draw-develop/src/leaflet.draw.css')}}" />
 
         <style>
         html,
@@ -70,13 +73,50 @@
 
 @push('scripts')
 
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-        crossorigin=""></script>
+    <script
+    src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""
+    ></script>
         <script src="{{ asset('leafletjs/leaflet.markercluster.js')}}"></script>
         <script src="{{ asset('leafletjs/leaflet.groupedlayercontrol.js')}}"></script>
         <script src="{{ asset('leafletjs/leaflet-search.js')}}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/Leaflet.draw.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/Leaflet.Draw.Event.js')}}"></script>
+
+        <script src="{{ asset('Leaflet.draw-develop/src/Toolbar.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/Tooltip.js')}}"></script>
+
+        <script src="{{ asset('Leaflet.draw-develop/src/ext/GeometryUtil.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/ext/LatLngUtil.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/ext/LineUtil.Intersect.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/ext/Polygon.Intersect.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/ext/Polyline.Intersect.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/ext/TouchEvents.js')}}"></script>
+
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/DrawToolbar.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Feature.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.SimpleShape.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Polyline.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Marker.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Circle.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.CircleMarker.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Polygon.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Rectangle.js')}}"></script>
+
+
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/EditToolbar.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/EditToolbar.Edit.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/EditToolbar.Delete.js')}}"></script>
+
+        <script src="{{ asset('Leaflet.draw-develop/src/Control.Draw.js')}}"></script>
+
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Poly.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.SimpleShape.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Rectangle.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Marker.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.CircleMarker.js')}}"></script>
+        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Circle.js')}}"></script>
 
 
     <script>
@@ -91,6 +131,7 @@
                 zoomOffset: -1,
                 attribution: mbAttr
             }),
+
             dark = L.tileLayer(mbUrl, {
                 id: 'mapbox/dark-v10',
                 tileSize: 512,
@@ -109,93 +150,18 @@
             zoom: 5,
             layers: [streets]
         });
-        var baseLayers = {
-            "Grayscale": dark,
-            "Satellite": satellite,
-            "Streets": streets
-        };
-        var overlays = {
-            "Streets": streets,
-            "Grayscale": dark,
-            "Satellite": satellite,
-        };
+
         var myIcon = L.icon({
             iconUrl: "{{ asset('pesawat.png')}}",
             iconSize: [16, 16]
         });
-
-        var layerControl = L.control.groupedLayers(baseLayers).addTo(map);
-
-        //L.control.Measure().addTo(map);
-        //var zooms = L.control.zoom({position:'topright'}).addTo(map);
-        var drawnItems = new L.FeatureGroup();
-        map.addLayer(drawnItems);
-        var drawControl = new L.Control.Draw({
-            edit: {
-                featureGroup: drawnItems
-            }
-        });
-        map.addControl(drawControl);
-
-        map.on(L.Draw.Event.CREATED, function (e) {
-            var type = e.layerType,
-                layer = e.layer;
-            if (type === 'marker') {
-                // Do marker specific actions
-            }
-            // Do whatever else you need to. (save to db; add to map etc)
-            map.addLayer(layer);
-            });
-
-
-
-        // var groupedOverlays = {
-        //     "Landmarks": {
-        //         "Motorways": motorways,
-        //         "Cities": cities
-        //     },
-        //     "Points of Interest": {
-        //         "Restaurants": restaurants
-        //     }
-        //     };
-
-        //     L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
-
-
-
-        // Menampilkan popup data ketika marker di klik
-        // var markers = L.markerClusterGroup();
-
-        // @foreach ($airbases as $item)
-        //     markers.addLayer(L.marker([{{ $item->location }}], {icon: myIcon})
-        //         .bindPopup(
-        //             "<div class='my-2'><img src='{{ asset('/uploads/imgCover/' . $item->image) }}' class='img-fluid' width='700px'></div>" +
-        //             "<div class='my-2'><strong>Nama airbase:</strong> <br>{{ $item->name_airbase }}</div>" +
-        //             "<div><a href='{{ route('map.show', $item->slug) }}' class='btn btn-outline-info btn-sm'>Detail airbase</a></div>" +
-        //             "<div class='my-2'></div>"
-        //         ));
-        // @endforeach
-
-        // map.addLayer(markers);
-
 
         // pada koding ini kita menambahkan control pencarian data
         var markersLayer = new L.markerClusterGroup();
 
         map.addLayer(markersLayer);
 
-        var controlSearch = new L.Control.Search({
-            position:'topright',
-            layer: markersLayer,
-            initial: false,
-            zoom: 17,
-            markerLocation: true
-        });
-
-        map.addControl( controlSearch );
-
-
-         var datas = [
+        var datas = [
         @foreach ($airbases as $key => $value)
             {   "loc":[{{$value->location }}],
                 "title": '{!! $value->name_airbase !!}',
@@ -216,50 +182,64 @@
 
                 marker = new L.Marker(new L.latLng(loc), {title:title, icon: myIcon} );//se property searched
                 marker.bindPopup(
-                    "<div class='my-2'><img src='{{ asset('/uploads/imgCover/') }}/"+image + "' class='img-fluid' width='700px'></div>" +
-                    "<div class='my-2'><strong>Nama airbase:</strong> <br>"+ title + " - "+ slug +"</div>" +
-                    "<a href='map/"+slug+"' class='btn btn-outline-info btn-sm'>Detail Spot</a></div>" +
+                    "<div class='my-2'><img src='{{ asset('/uploads/imgCover/') }}/"+image + "' class='img-fluid' width='200px' height='200px'></div>" +
+                    "<div class='my-2'><strong>Nama airbase:</strong> <br>"+ title + "</div>" +
+                    "<a href='map/"+slug+"' class='btn btn-outline-info btn-sm'>Detail Info</a></div>" +
                     "<div class='my-2'></div>"
                 );
 
                 markersLayer.addLayer(marker);
         }
 
+        var baseLayers = {
+            "Streets": streets,
+            "Satellite": satellite,
+            "Grayscale": dark
+        };
+
+        var overlays = {
+            "Skuadron": markersLayer,
+        };
+
+        var drawnItems = L.featureGroup().addTo(map);
 
 
+        //var layerControl = L.control.groupedLayers(baseLayers).addTo(map);
+        var layerControl = L.control.layers(baseLayers,overlays, {collapsed:false}).addTo(map);
+
+        var controlSearch = new L.Control.Search({
+            position:'topleft',
+            layer: markersLayer,
+            initial: false,
+            zoom: 17,
+            markerLocation: true,
+            collapsed: false
+        });
+
+        map.addControl( controlSearch );
+
+        map.addControl(new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems,
+                poly: {
+                    allowIntersection: false
+                }
+            },
+            draw: {
+                polygon: {
+                    allowIntersection: false,
+                    showArea: true
+                }
+            }
+        }));
+
+        map.on(L.Draw.Event.CREATED, function (event) {
+            var layer = event.layer;
+
+            drawnItems.addLayer(layer);
+        });
 
 
-        // var datas = [
-        // @foreach ($airbases as $key => $value)
-        //     {"loc":[{{$value->location }}], "title": '{!! $value->name_airbase !!}'},
-        // @endforeach
-        // ];
-
-    // //menambahkan variabel controlsearch pada addControl
-    //    map.addControl( controlSearch );
-    //     // looping variabel datas utuk menampilkan data airbase ketika melakukan pencarian data
-    //     for(i in datas) {
-
-    //         var title = datas[i].title,
-    //             loc = datas[i].loc,
-    //             marker = new L.Marker(new L.latLng(loc), {title: title} );
-    //         markersLayer.addLayer(marker);
-    //         // melakukan looping data untuk memunculkan popup dari airbase yang dipilih
-    //         @foreach ($airbases as $item)
-    //         L.marker([{{ $item->location }}]
-    //             )
-    //             .bindPopup(
-    //                 "<div class='my-2'><img src='{{ asset('/uploads/imgCover/' . $item->image) }}' class='img-fluid' width='700px'></div>" +
-    //                 "<div class='my-2'><strong>Nama Spot:</strong> <br>{{ $item->name_airbase }}</div>" +
-    //                 "<a href='{{ route('map.show', $item->slug) }}' class='btn btn-outline-info btn-sm'>Detail Spot</a></div>" +
-    //                 "<div class='my-2'></div>"
-    //             ).addTo(map);
-    //         @endforeach
-    //     }
-
-
-
-        //L.control.layers(baseLayers, overlays).addTo(map);
 
        //document.getElementById("span_pilih_1").onclick = function() {alert('ooook')};
        function spanpilih($id){
