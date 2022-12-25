@@ -237,6 +237,19 @@
             var layer = event.layer;
 
             drawnItems.addLayer(layer);
+
+            var type = event.layerType,
+                layer = event.layer;
+                if (type = 'polyline') {
+                    var coords = layer.getLatLngs();
+                    var length = 0;
+                    for (var i = 0; i < coords.length - 1; i++) {
+                        length += coords[i].distanceTo(coords[i + 1]);
+                    }
+                    //console.log(length);
+                    var angka = length/1000;
+                    layer.bindPopup("Jarak "+  angka.toFixed(2) + " km");
+                }
         });
 
 
