@@ -15,7 +15,7 @@
 @endpush
 
 @section('content')
-                            <div class="main-body">
+<div class="main-body">
                                 <div class="page-wrapper">
                                     <!-- Page-header start -->
                                     <div class="page-header m-t-30">
@@ -24,7 +24,7 @@
                                                 <div class="page-header-title">
                                                     <div class="d-inline">
                                                         <!--<h4>Peta</h4>-->
-                                                        <h4>Tambah Pangkalan Udara</h4>
+                                                        <h4>Ubah Pangkalan Udara</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -53,9 +53,10 @@
                                             <div class="card">
                                                 <div class="card-block">
                                                     <h4 class="sub-title">Pangkalan Udara</h4>
-                                                    <form action="{{ route('airbase.store') }}" method="post" enctype="multipart/form-data">
 
+                                                   <form action="{{ route('airbase.update',$airbase) }}" method="post" enctype="multipart/form-data">
                                                         @csrf
+                                                        @method('PUT')
 
                                                         <div class="form-group row">
                                                             <div class="col"></div>
@@ -70,7 +71,7 @@
                                                                 <select class="form-control" name="country">
                                                                     <option value="">Pilih Negara</option>
                                                                     @foreach ($countries as $country)
-                                                                        <option value="{{$country->id}}">{{$country->name_country}}</option>
+                                                                        <option value="{{$country->id}}" {{ $country->id == $airbase->country_id ? 'selected' : '' }}>{{$country->name_country}}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
@@ -78,60 +79,32 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Kode Pangkalan Udara</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="code" @error('code') is-invalid @enderror>
+                                                                <input type="text" class="form-control" value="{{ $airbase->code_airbase }}" name="code" @error('code') is-invalid @enderror id="">
                                                                 @error('code')
                                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                                 @enderror
                                                             </div>
                                                         </div>
+
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Nama Pangkalan Udara</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="name" @error('name') is-invalid @enderror>
+                                                                <input type="text" class="form-control" value="{{ $airbase->name_airbase }}" name="name" @error('name') is-invalid @enderror id="">
                                                                 @error('name')
                                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                                 @enderror
                                                             </div>
                                                         </div>
-                                                        <!--
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Jumlah Pesawat</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="pesawat" @error('pesawat') is-invalid @enderror>
-                                                                @error('pesawat')
-                                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Komandan</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="komandan" @error('komandan') is-invalid @enderror>
-                                                                @error('komandan')
-                                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Jumlah Anggota</label>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="anggota" @error('anggota') is-invalid @enderror>
-                                                                @error('anggota')
-                                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                                @enderror
-                                                            </div>
-                                                        </div>-->
+
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Foto Image</label>
-
                                                             <div class="col-sm-10">
-                                                                <img id="previewImage" class="mb-2" src="#" width="200px" height="200px" alt="">
-                                                                <input type="file" name="image" class="form-control upload__inputfile @error('image') is-invalid @enderror"
-                                                                    id="image" multiple="">
+                                                                <img id="previewImage" class="mb-2" src="{{ $airbase->getImage() }}" width="200px" height="200px" alt="">
+                                                                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
+                                                                    id="image">
                                                                 @error('image')
                                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                                 @enderror
-                                                                <div class="upload__img-wrap"></div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -139,7 +112,7 @@
                                                             <div class="col-sm-10">
                                                                <textarea name="description" class="form-control @error('description')
                                                                         is-invalid
-                                                                    @enderror" id="" cols="30" rows="10" placeholder="Deskripsi"></textarea>
+                                                                    @enderror" id="" cols="30" rows="10" placeholder="Deskripsi">{{ $airbase->description }}</textarea>
                                                                     @error('description')
                                                                         <div class="invalid-feedback">{{ $message }}</div>
                                                                     @enderror
@@ -149,7 +122,7 @@
                                                             <label class="col-sm-2 col-form-label">Lokasi</label>
                                                             <div class="col-sm-10">
                                                               <input type="text" name="location"
-                                                                        class="form-control @error('location') is-invalid @enderror" readonly id="">
+                                                                        class="form-control @error('location') is-invalid @enderror" value="{{ $airbase->location }}">
                                                                     @error('location')
                                                                         <div class="invalid-feedback">{{ $message }}</div>
                                                                     @enderror
@@ -175,6 +148,7 @@
                                 </div>
                             </div>
 
+
 @endsection
 
 @push('scripts')
@@ -183,11 +157,7 @@
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin=""></script>
 
-
-    <script>
-
-        // fungsi ini akan berjalan ketika akan menambahkan gambar dimana fungsi ini
-        // akan membuat preview image sebelum kita simpan gambar tersebut.
+<script>
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -200,59 +170,6 @@
             }
         }
 
-        jQuery(document).ready(function () {
-            ImgUpload();
-        });
-
-        function ImgUpload() {
-            var imgWrap = "";
-            var imgArray = [];
-
-            $('.upload__inputfile').each(function () {
-                $(this).on('change', function (e) {
-                imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-                var maxLength = $(this).attr('data-max_length');
-
-                var files = e.target.files;
-                var filesArr = Array.prototype.slice.call(files);
-                var iterator = 0;
-                filesArr.forEach(function (f, index) {
-
-                    if (!f.type.match('image.*')) {
-                    return;
-                    }
-
-                    if (imgArray.length > maxLength) {
-                    return false
-                    } else {
-                    var len = 0;
-                    for (var i = 0; i < imgArray.length; i++) {
-                        if (imgArray[i] !== undefined) {
-                        len++;
-                        }
-                    }
-                    if (len > maxLength) {
-                        return false;
-                    } else {
-                        imgArray.push(f);
-
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                        var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                        imgWrap.append(html);
-                        iterator++;
-                        }
-                        reader.readAsDataURL(f);
-                    }
-                    }
-                });
-                });
-            });
-        }
-
-
-
-        // Ketika tag input file denghan class image di klik akan menjalankan fungsi di atas
         $("#image").change(function() {
             readURL(this);
         });
@@ -281,13 +198,9 @@
                 attribution: mbAttr
             });
 
-
         var map = L.map('map', {
-            // titik koordinat disini kita dapatkan dari tabel centrepoint tepatnya dari field location
-            // yang sebelumnya sudah kita tambahkan jadi lokasi map yang akan muncul  sesuai dengan tabel
-            // centrepoint
-            center: [{{ $centrepoint->location }}],
-            zoom: 5,
+            center: [{{ $airbase->location }}],
+            zoom: 14,
             layers: [streets]
         });
 
@@ -304,11 +217,7 @@
 
         L.control.layers(baseLayers, overlays).addTo(map);
 
-        // Begitu juga dengan curLocation titik koordinatnya dari tabel centrepoint
-        // lalu kita masukkan curLocation tersebut ke dalam variabel marker untuk menampilkan marker
-        // pada peta.
-
-        var curLocation = [{{ $centrepoint->location }}];
+        var curLocation = [{{ $airbase->location }}];
         map.attributionControl.setPrefix(false);
 
         var marker = new L.marker(curLocation, {

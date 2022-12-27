@@ -4,6 +4,8 @@ use App\Http\Controllers\AirbaseController;
 use App\Http\Controllers\CentreController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\PlaneairbaseController;
+use App\Http\Controllers\PlaneController;
 use App\Http\Controllers\SpaceController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +48,10 @@ Route::get('/countries/data',[CountryController::class,'countries'])->name('data
 
 Route::resource('airbase',(AirbaseController::class));
 Route::get('/airbases/data',[AirbaseController::class,'airbases'])->name('data-airbase');
+
+Route::resource('plane',(PlaneController::class));
+Route::get('/planes/data',[PlaneController::class,'planes'])->name('data-plane');
+
+Route::resource('planeairbase',(PlaneairbaseController::class));
+Route::get('/planeairbases/data',[PlaneairbaseController::class,'planeairbases'])->name('data-planeairbase');
 

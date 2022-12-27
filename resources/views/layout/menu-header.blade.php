@@ -30,6 +30,13 @@
                                         </a>
                                     </li>
                                     <li class=" ">
+                                        <a href="/plane" data-i18n="nav.animations.main">
+                                            <span class="pcoded-micon"><i class="ti-reload rotate-refresh"></i></span>
+                                            <span class="pcoded-mtext">Jenis Pesawat</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
                                         <a href="/centre-point" data-i18n="nav.animations.main">
                                             <span class="pcoded-micon"><i class="ti-reload rotate-refresh"></i></span>
                                             <span class="pcoded-mtext">Titik Tengah</span>
