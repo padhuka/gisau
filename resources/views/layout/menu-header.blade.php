@@ -37,6 +37,13 @@
                                         </a>
                                     </li>
                                     <li class=" ">
+                                        <a href="/planeairbase" data-i18n="nav.animations.main">
+                                            <span class="pcoded-micon"><i class="ti-reload rotate-refresh"></i></span>
+                                            <span class="pcoded-mtext">Pesawat di Skuadron</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
                                         <a href="/centre-point" data-i18n="nav.animations.main">
                                             <span class="pcoded-micon"><i class="ti-reload rotate-refresh"></i></span>
                                             <span class="pcoded-mtext">Titik Tengah</span>
