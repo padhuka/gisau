@@ -30,28 +30,36 @@
 @endpush
 
 @section('content')
-
     <div class="container py-4 justify-content-center">
         <div class="row">
             <div class="col-md-6 col-xs-6 mb-2">
                 <div class="card">
                     <div class="card-body">
                         <p>
-                        <h4><strong>Nama Airbase :</strong></h4>
+                        <h5><strong>Nama Skuadron :</strong></h5>
                         <h5>{{ $airbases->name_airbase }}</h5>
                         </p>
 
                         <p>
-                        <h4><strong>Keterangan Airbase :</strong></h4>
+                        <h5><strong>Keterangan Skuadron :</strong></h5>
                         <p>{{ $airbases->description }}</p>
                         </p>
 
                         <p>
-                        <h4>
+                        <h5>
                             <strong>Foto</strong>
-                        </h4>
+                        </h5>
                         <img class="img-fluid" width="200" src="{{ asset('uploads/imgCover/' . $airbases->image) }}"
                             alt="">
+                        </p>
+
+                        <p>
+                        <h5><strong>Pesawat di Skuadron :</strong></h5>
+                        <p>
+                            @foreach ($planeairbases as $planeairbase)
+                                <strong>- &nbsp;{{$planeairbase->code_plane}}</br></strong>
+                            @endforeach
+                        </p>
                         </p>
                     </div>
                     <div class="card-footer">
@@ -100,14 +108,16 @@
                 attribution: mbAttr
             });
         var data{{ $airbases->id }} = L.layerGroup()
+
         var map = L.map('map', {
             center: [{{ $airbases->location }}],
             zoom: 20,
             fullscreenControl: {
                 pseudoFullscreen: false
             },
-            layers: [streets, data{{ $airbases->id }}]
+            layers: [streets, data{{ $airbases->id }}],
         });
+
         var baseLayers = {
             "Streets": streets,
             "Satellite": satellite,
@@ -118,10 +128,17 @@
             "{{ $airbases->name }}": data{{ $airbases->id }},
         };
         L.control.layers(baseLayers, overlays).addTo(map);
+
+        var myIcon = L.icon({
+            iconUrl: "{{ asset('pesawat.png')}}",
+            iconSize: [16, 16]
+        });
+
         var curLocation = [{{ $airbases->location }}];
         map.attributionControl.setPrefix(false);
         var marker = new L.marker(curLocation, {
             draggable: 'false',
+            icon: myIcon
         });
         map.addLayer(marker);
     </script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CentrePoint;
 use App\Models\Airbase;
+use App\Models\Planeairbase;
 use Illuminate\Http\Request;
 
 class MapController extends Controller
@@ -41,9 +42,19 @@ class MapController extends Controller
          */
         $centrePoint = CentrePoint::get()->first();
         $airbases = Airbase::where('slug',$slug)->first();
+        $planeairbases = Planeairbase::select('planeairbases.*','planes.code_plane','airbases.name_airbase','countries.name_country')
+                        ->join('planes','planeairbases.plane_id','=','planes.id')
+                        ->join('airbases','planeairbases.airbase_id','=','airbases.id')
+                        ->join('countries','airbases.country_id','=','countries.id')
+                        ->orderBy('airbases.name_airbase','ASC')
+                        ->get();
         return view('detail',[
             'centrePoint' => $centrePoint,
-            'airbases' => $airbases
+            'airbases' => $airbases,
+            'planeairbases' => $planeairbases
         ]);
+
+
+
     }
 }

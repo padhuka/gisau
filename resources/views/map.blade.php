@@ -148,7 +148,8 @@
         var map = L.map('map', {
             center: [{{ $centrePoint->location }}],
             zoom: 5,
-            layers: [streets]
+            layers: [streets],
+            attributionControl: false
         });
 
         var myIcon = L.icon({
@@ -221,17 +222,29 @@
         map.addControl(new L.Control.Draw({
             edit: {
                 featureGroup: drawnItems,
-                poly: {
-                    allowIntersection: false
-                }
+                // poly: {
+                //     allowIntersection: false,
+                //     metric: false,
+                //     feet: false
+                // },
+                polyline: {
+                    metric: false,
+                    feet: false
+                },
             },
             draw: {
                 polygon: {
                     allowIntersection: false,
-                    showArea: true
-                }
+                    showArea: true,
+                },
+                polyline: {
+                    metric: false,
+                    feet: false
+                },
             }
         }));
+
+        //L.control.scale({imperial:true}).addTo(map);
 
         map.on(L.Draw.Event.CREATED, function (event) {
             var layer = event.layer;
@@ -248,7 +261,7 @@
                     }
                     //console.log(length);
                     var angka = length/1000;
-                    layer.bindPopup("Jarak "+  angka.toFixed(2) + " km");
+                    layer.bindPopup("Jarak "+  angka.toFixed(2) + " miles");
                 }
         });
 
