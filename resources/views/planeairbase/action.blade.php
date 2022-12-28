@@ -1,6 +1,6 @@
 {{-- pada view action terdapat 2 button edit data dan hapus data --}}
-<a href="{{ route('airbase.edit',$model) }}" class="btn btn-warning btn-sm">Edit</a>
-<button href="{{ route('airbase.destroy',$model) }}" class="btn btn-danger btn-sm" id="delete">Hapus</button>
+<a href="{{ route('planeairbase.edit',$model) }}" class="btn btn-warning btn-sm">Edit</a>
+<button href="{{ route('planeairbase.destroy',$model) }}" class="btn btn-danger btn-sm" id="delete">Hapus</button>
 
 {{-- pada view action kita meload cdn sweetalert 2 untuk menampilkan alert dialog dari sweet alert2 --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

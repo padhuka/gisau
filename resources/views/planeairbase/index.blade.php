@@ -49,7 +49,7 @@
                                                   <!-- Zero config.table start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5><a href="{{ route('airbase.create') }}" class="btn btn-info btn-sm float-end mb-2">Tambah Pesawat di Pangkalan Udara</a></h5>
+                                                    <h5><a href="{{ route('planeairbase.create') }}" class="btn btn-info btn-sm float-end mb-2">Tambah Pesawat di Pangkalan Udara</a></h5>
                                                     <!--<span>DataTables has most features enabled by default, so all you need to do to use it with your own ables is to call the construction function: $().DataTable();.</span>-->
                                                 </div>
                                                 <div class="card-block">
