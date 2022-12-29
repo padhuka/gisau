@@ -67,26 +67,28 @@
                                                     <span class="text-inverse">Remember me</span>
                                                 </label>
                                             </div>
+                                          
                                             {{-- <div class="forgot-phone text-right f-right">
                                                 <a href="auth-reset-password.htm" class="text-right f-w-600"> Forgot Password?</a>
                                             </div> --}}
-                                        </div>
+                                        
+                                      
+                                    </div>
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Log in</button>
                                         </div>
                                     </div>
+                                  
+                                        <div class="col-12">
+                                            <a href="{{ route('register') }}">
+                                            Register                                         
+                                        </a>
+                                        </div>  
+                                    
                                     <hr>
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            <p class="text-inverse text-left m-b-0">Thank you.</p>
-                                        </div>
-                                        {{-- <div class="col-md-2">
-                                            <img src="libraries\assets\images\auth\Logo-small-bottom.png" alt="small-logo.png">
-                                        </div> --}}
-                                    </div>
-                                </div>
+                                   </div>
                             </div>
                         </form>
                         <!-- end of form -->
