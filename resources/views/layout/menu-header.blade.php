@@ -1,5 +1,6 @@
 <nav class="pcoded-navbar">
                     <div class="pcoded-inner-navbar">
+                        @if(Auth::check())  
                         <ul class="pcoded-item pcoded-left-item">
                             <li class="pcoded-hasmenu">
                                 <a href="{{route('home')}}">
@@ -53,6 +54,33 @@
                                 </ul>
                             </li>
                         </ul>
+                        @endif
+                        <ul class="pcoded-item pcoded-right-item">
+                            @if (!Auth::check())
+                            <li class=" ">
+                                <a href="{{ route('login') }}">
+                                    <span class="pcoded-micon"><i class="feather icon-navigation"></i></span>
+                                    <span class="pcoded-mtext">Login</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                            </li>
+                          @endif
+                          @if (Auth::check())
+                            <li class="nav-item">
+                                <form action="{{ route('logout') }}" method="post">
+                  
+                                    @csrf
+                                    <button type="submit" class="dropdown-item feather icon-navigation"> Logout</button>
+
+                                   
+                                </form>
+                                {{-- <a href="{{ route('logout') }}">
+                                    <span class="pcoded-micon"><i class="feather icon-navigation"></i></span>
+                                    <span class="pcoded-mtext">Logout</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a> --}}
+                            </li>
+                        @endif
                     </div>
                 </nav>
 

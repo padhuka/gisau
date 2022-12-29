@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('code_airbase');
             $table->string('name_airbase');
             $table->string('slug')->unique();
+            $table->string('location');
             $table->bigInteger('country_id')->unsigned()->nullable();
             $table->integer('fighter_plane')->nullable()->default(0);
             $table->string('leader')->nullable()->default(0);

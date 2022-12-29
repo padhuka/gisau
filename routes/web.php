@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\AirbaseController;
-use App\Http\Controllers\CentreController;
-use App\Http\Controllers\CountryController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
-use App\Http\Controllers\PlaneairbaseController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlaneController;
 use App\Http\Controllers\SpaceController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CentreController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\AirbaseController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PlaneairbaseController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +57,14 @@ Route::get('/planes/data',[PlaneController::class,'planes'])->name('data-plane')
 
 Route::resource('planeairbase',(PlaneairbaseController::class));
 Route::get('/planeairbases/data',[PlaneairbaseController::class,'planeairbases'])->name('data-planeairbase');
+
+//Users
+Route::get('register',[RegistrationController::class,'create'])->name('register');
+Route::post('register',[RegistrationController::class,'store'])->name('register');
+Route::get('login',[LoginController::class,'create'])->name('login');
+Route::post('login',[LoginController::class,'store']);
+
+Route::middleware('auth')->group(function(){
+    Route::post('logout', LogoutController::class)->name('logout');
+});
 
