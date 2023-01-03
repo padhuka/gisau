@@ -25,7 +25,6 @@ class LoginController extends Controller
 
         if (Auth::attempt($attributes))
         {
-            //dd($attributes);
             return redirect(RouteServiceProvider::HOME);
             throw ValidationException::withMessages([
                 'email' => 'Your email was wrong !'

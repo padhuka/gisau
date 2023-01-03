@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Providers\RouteServiceProvider;
 use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
@@ -15,6 +16,6 @@ class RegistrationController extends Controller
 
           User::create($request->all());
           
-          return redirect('/');
+          return redirect(RouteServiceProvider::HOME);
       }
 }
