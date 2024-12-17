@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,37 +14,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="#">
-    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="keywords"
+        content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
     <link rel="icon" href="{{ asset('adminty\libraries\assets\images\favicon.ico') }}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('adminty\libraries\bower_components\bootstrap\css\bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('adminty\libraries\bower_components\bootstrap\css\bootstrap.min.css') }}">
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('adminty\libraries\assets\icon\feather\css\feather.css') }}">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('adminty\libraries\assets\css\style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('adminty\libraries\assets\css\jquery.mCustomScrollbar.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('adminty\libraries\assets\css\jquery.mCustomScrollbar.css') }}">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
 
-	<style>
-		html, body {
-			height: 100%;
-			margin: 0;
-		}
-		.leaflet-container {
-			height: 400px;
-			width: 600px;
-			max-width: 100%;
-			max-height: 100%;
-		}
-	</style>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-    <style>body { padding: 0; margin: 0; } #map { height: 600px; width: 100%; }</style>
+        .leaflet-container {
+            height: 400px;
+            width: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
 
 </head>
 
@@ -100,7 +118,8 @@
                             <i class="feather icon-menu"></i>
                         </a>
                         <a href="index-1.htm">
-                            <img class="img-fluid" src="{{ asset('adminty\libraries\assets\images\logo.png') }}" alt="Theme-Logo">
+                            <img class="img-fluid" src="{{ asset('adminty\libraries\assets\images\logo.png') }}"
+                                alt="Theme-Logo">
                         </a>
                         <a class="mobile-options">
                             <i class="feather icon-more-horizontal"></i>
@@ -112,9 +131,11 @@
                             <li class="header-search">
                                 <div class="main-search morphsearch-search">
                                     <div class="input-group">
-                                        <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+                                        <span class="input-group-addon search-close"><i
+                                                class="feather icon-x"></i></span>
                                         <input type="text" class="form-control">
-                                        <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+                                        <span class="input-group-addon search-btn"><i
+                                                class="feather icon-search"></i></span>
                                     </div>
                                 </div>
                             </li>
@@ -131,37 +152,47 @@
                                         <i class="feather icon-bell"></i>
                                         <span class="badge bg-c-pink">5</span>
                                     </div>
-                                    <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <ul class="show-notification notification-view dropdown-menu"
+                                        data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         <li>
                                             <h6>Notifications</h6>
                                             <label class="label label-danger">New</label>
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius"
+                                                    src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}"
+                                                    alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">John Doe</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
+                                                        elit.</p>
                                                     <span class="notification-time">30 minutes ago</span>
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius"
+                                                    src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}"
+                                                    alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Joseph William</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
+                                                        elit.</p>
                                                     <span class="notification-time">30 minutes ago</span>
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius"
+                                                    src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}"
+                                                    alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Sara Soudein</h5>
-                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                    <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
+                                                        elit.</p>
                                                     <span class="notification-time">30 minutes ago</span>
                                                 </div>
                                             </div>
@@ -180,11 +211,13 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}" class="img-radius" alt="User-Profile-Image">
+                                        <img src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}"
+                                            class="img-radius" alt="User-Profile-Image">
                                         <span>John Doe</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
-                                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <ul class="show-notification profile-notification dropdown-menu"
+                                        data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         <li>
                                             <a href="#!">
                                                 <i class="feather icon-settings"></i> Settings
@@ -227,7 +260,8 @@
                             <div class="chat-inner-header">
                                 <div class="back_chatBox">
                                     <div class="right-icon-control">
-                                        <input type="text" class="form-control  search-text" placeholder="Search Friend" id="search-friends">
+                                        <input type="text" class="form-control  search-text" placeholder="Search Friend"
+                                            id="search-friends">
                                         <div class="form-icon">
                                             <i class="icofont icofont-search"></i>
                                         </div>
@@ -235,45 +269,62 @@
                                 </div>
                             </div>
                             <div class="main-friend-list">
-                                <div class="media userlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+                                <div class="media userlist-box" data-id="1" data-status="online"
+                                    data-username="Josephin Doe" data-toggle="tooltip" data-placement="left"
+                                    title="Josephin Doe">
                                     <a class="media-left" href="#!">
-                                        <img class="media-object img-radius img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}" alt="Generic placeholder image ">
+                                        <img class="media-object img-radius img-radius"
+                                            src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}"
+                                            alt="Generic placeholder image ">
                                         <div class="live-status bg-success"></div>
                                     </a>
                                     <div class="media-body">
                                         <div class="f-13 chat-header">Josephin Doe</div>
                                     </div>
                                 </div>
-                                <div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe" data-toggle="tooltip" data-placement="left" title="Lary Doe">
+                                <div class="media userlist-box" data-id="2" data-status="online"
+                                    data-username="Lary Doe" data-toggle="tooltip" data-placement="left"
+                                    title="Lary Doe">
                                     <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-2.jpg') }}" alt="Generic placeholder image">
+                                        <img class="media-object img-radius"
+                                            src="{{ asset('adminty\libraries\assets\images\avatar-2.jpg') }}"
+                                            alt="Generic placeholder image">
                                         <div class="live-status bg-success"></div>
                                     </a>
                                     <div class="media-body">
                                         <div class="f-13 chat-header">Lary Doe</div>
                                     </div>
                                 </div>
-                                <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                                <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice"
+                                    data-toggle="tooltip" data-placement="left" title="Alice">
                                     <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}" alt="Generic placeholder image">
+                                        <img class="media-object img-radius"
+                                            src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}"
+                                            alt="Generic placeholder image">
                                         <div class="live-status bg-success"></div>
                                     </a>
                                     <div class="media-body">
                                         <div class="f-13 chat-header">Alice</div>
                                     </div>
                                 </div>
-                                <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia" data-toggle="tooltip" data-placement="left" title="Alia">
+                                <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia"
+                                    data-toggle="tooltip" data-placement="left" title="Alia">
                                     <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}" alt="Generic placeholder image">
+                                        <img class="media-object img-radius"
+                                            src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}"
+                                            alt="Generic placeholder image">
                                         <div class="live-status bg-success"></div>
                                     </a>
                                     <div class="media-body">
                                         <div class="f-13 chat-header">Alia</div>
                                     </div>
                                 </div>
-                                <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen" data-toggle="tooltip" data-placement="left" title="Suzen">
+                                <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen"
+                                    data-toggle="tooltip" data-placement="left" title="Suzen">
                                     <a class="media-left" href="#!">
-                                        <img class="media-object img-radius" src="{{ asset('adminty\libraries\assets\images\avatar-2.jpg') }}" alt="Generic placeholder image">
+                                        <img class="media-object img-radius"
+                                            src="{{ asset('adminty\libraries\assets\images\avatar-2.jpg') }}"
+                                            alt="Generic placeholder image">
                                         <div class="live-status bg-success"></div>
                                     </a>
                                     <div class="media-body">
@@ -294,7 +345,9 @@
                 </div>
                 <div class="media chat-messages">
                     <a class="media-left photo-table" href="#!">
-                        <img class="media-object img-radius img-radius m-t-5" src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}" alt="Generic placeholder image">
+                        <img class="media-object img-radius img-radius m-t-5"
+                            src="{{ asset('adminty\libraries\assets\images\avatar-3.jpg') }}"
+                            alt="Generic placeholder image">
                     </a>
                     <div class="media-body chat-menu-content">
                         <div class="">
@@ -312,7 +365,9 @@
                     </div>
                     <div class="media-right photo-table">
                         <a href="#!">
-                            <img class="media-object img-radius img-radius m-t-5" src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}" alt="Generic placeholder image">
+                            <img class="media-object img-radius img-radius m-t-5"
+                                src="{{ asset('adminty\libraries\assets\images\avatar-4.jpg') }}"
+                                alt="Generic placeholder image">
                         </a>
                     </div>
                 </div>
@@ -662,7 +717,8 @@
                                 </li>
                                 <li class=" ">
                                     <a href="animation.htm') }}">
-                                        <span class="pcoded-micon"><i class="feather icon-aperture rotate-refresh"></i><b>A</b></span>
+                                        <span class="pcoded-micon"><i
+                                                class="feather icon-aperture rotate-refresh"></i><b>A</b></span>
                                         <span class="pcoded-mtext">Animations</span>
                                     </a>
                                 </li>
@@ -1187,7 +1243,8 @@
                                     </ul>
                                 </li>
                                 <li class="">
-                                    <a href="{{ asset('adminty\libraries\extra-pages\landingpage\index.htm') }}" target="_blank">
+                                    <a href="{{ asset('adminty\libraries\extra-pages\landingpage\index.htm') }}"
+                                        target="_blank">
                                         <span class="pcoded-micon"><i class="feather icon-navigation-2"></i></span>
                                         <span class="pcoded-mtext">Landing Page</span>
                                     </a>
@@ -1233,7 +1290,8 @@
                                         </li>
                                         <li class="">
                                             <a href="auth-sign-up-social-header-footer.htm') }}" target="_blank">
-                                                <span class="pcoded-mtext">Registration Social With Header And Footer</span>
+                                                <span class="pcoded-mtext">Registration Social With Header And
+                                                    Footer</span>
                                             </a>
                                         </li>
                                         <li class="">
@@ -1380,27 +1438,32 @@
                                             </a>
                                             <ul class="pcoded-submenu">
                                                 <li class="">
-                                                    <a href="{{ asset('adminty\libraries\extra-pages\email-templates\email-welcome.htm') }}">
+                                                    <a
+                                                        href="{{ asset('adminty\libraries\extra-pages\email-templates\email-welcome.htm') }}">
                                                         <span class="pcoded-mtext">Welcome Email</span>
                                                     </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="{{ asset('adminty\libraries\extra-pages\email-templates\email-password.htm') }}">
+                                                    <a
+                                                        href="{{ asset('adminty\libraries\extra-pages\email-templates\email-password.htm') }}">
                                                         <span class="pcoded-mtext">Reset Password</span>
                                                     </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="{{ asset('adminty\libraries\extra-pages\email-templates\email-newsletter.htm') }}">
+                                                    <a
+                                                        href="{{ asset('adminty\libraries\extra-pages\email-templates\email-newsletter.htm') }}">
                                                         <span class="pcoded-mtext">Newsletter Email</span>
                                                     </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="{{ asset('adminty\libraries\extra-pages\email-templates\email-launch.htm') }}">
+                                                    <a
+                                                        href="{{ asset('adminty\libraries\extra-pages\email-templates\email-launch.htm') }}">
                                                         <span class="pcoded-mtext">App Launch</span>
                                                     </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="{{ asset('adminty\libraries\extra-pages\email-templates\email-activation.htm') }}">
+                                                    <a
+                                                        href="{{ asset('adminty\libraries\extra-pages\email-templates\email-activation.htm') }}">
                                                         <span class="pcoded-mtext">Activation Code</span>
                                                     </a>
                                                 </li>
@@ -1640,7 +1703,8 @@
                                 </li>
                                 <li class="">
                                     <a href="change-loges.htm') }}">
-                                        <span class="pcoded-micon"><i class="feather icon-briefcase"></i><b>CL</b></span>
+                                        <span class="pcoded-micon"><i
+                                                class="feather icon-briefcase"></i><b>CL</b></span>
                                         <span class="pcoded-mtext">Change Loges</span>
                                     </a>
                                 </li>
@@ -1712,7 +1776,7 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                        @yield('content')
+                                    @yield('content')
 
                                 </div>
 
@@ -1772,16 +1836,25 @@
 <![endif]-->
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
-    <script data-cfasync="false" src="{{ asset('adminty\libraries\assets\cloudflare-static\email-decode.min.js') }}"></script><script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\jquery\js\jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\jquery-ui\js\jquery-ui.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\popper.js\js\popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\bootstrap\js\bootstrap.min.js') }}"></script>
+    <script data-cfasync="false" src="{{ asset('adminty\libraries\assets\cloudflare-static\email-decode.min.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\jquery\js\jquery.min.js') }}">
+    </script>
+    <script type="text/javascript"
+        src="{{ asset('adminty\libraries\bower_components\jquery-ui\js\jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\popper.js\js\popper.min.js') }}">
+    </script>
+    <script type="text/javascript"
+        src="{{ asset('adminty\libraries\bower_components\bootstrap\js\bootstrap.min.js') }}"></script>
     <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\jquery-slimscroll\js\jquery.slimscroll.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('adminty\libraries\bower_components\jquery-slimscroll\js\jquery.slimscroll.js') }}"></script>
     <!-- modernizr js -->
-    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\modernizr\js\modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\modernizr\js\modernizr.js') }}">
+    </script>
     <!-- Chart js -->
-    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\chart.js\js\Chart.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('adminty\libraries\bower_components\chart.js\js\Chart.js') }}">
+    </script>
     <!-- amchart js -->
     <script src="{{ asset('adminty\libraries\assets\pages\widget\amchart\amcharts.js') }}"></script>
     <script src="{{ asset('adminty\libraries\assets\pages\widget\amchart\serial.js') }}"></script>
@@ -1791,24 +1864,24 @@
     <script src="{{ asset('adminty\libraries\assets\js\pcoded.min.js') }}"></script>
     <!-- custom js -->
     <script src="{{ asset('adminty\libraries\assets\js\vartical-layout.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('adminty\libraries\assets\pages\dashboard\custom-dashboard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('adminty\libraries\assets\pages\dashboard\custom-dashboard.js') }}">
+    </script>
     <script type="text/javascript" src="{{ asset('adminty\libraries\assets\js\script.min.js') }}"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
-</script>
+    </script>
 
     <script>
-
         var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
             'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             mbUrl =
-            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGFkaHVrYSIsImEiOiJjbTRyc3MwaWYwODh6MnJwdWFidDVnOWt0In0.8V4BeVosj-lIaDwiewQNDQ';
 
         var satellite = L.tileLayer(mbUrl, {
                 id: 'mapbox/satellite-v9',

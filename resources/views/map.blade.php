@@ -1,130 +1,125 @@
 @extends('layout.app')
 
 @push('styles')
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-      crossorigin=""
-    />
-    <link rel="stylesheet" href="{{ asset('leafletjs/MarkerCluster.Default.css')}}" />
-    <link rel="stylesheet" href="{{ asset('leafletjs/leaflet.groupedlayercontrol.css')}}" />
-    <link rel="stylesheet" href="{{ asset('leafletjs/leaflet-search.css')}}" />
-    <link rel="stylesheet" href="{{ asset('Leaflet.draw-develop/src/leaflet.draw.css')}}" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<link rel="stylesheet" href="{{ asset('leafletjs/MarkerCluster.Default.css')}}" />
+<link rel="stylesheet" href="{{ asset('leafletjs/leaflet.groupedlayercontrol.css')}}" />
+<link rel="stylesheet" href="{{ asset('leafletjs/leaflet-search.css')}}" />
+<link rel="stylesheet" href="{{ asset('Leaflet.draw-develop/src/leaflet.draw.css')}}" />
 
-        <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
-        .leaflet-container {
-            height: 400px;
-            width: 600px;
-            max-width: 100%;
-            max-height: 100%;
-        }
-            body {
-                padding: 0;
-                margin: 0;
-            }
-            #map {
-                height: 600px;
-                width: 100%;
-            }
-    </style>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+
+    .leaflet-container {
+        height: 400px;
+        width: 600px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        height: 600px;
+        width: 100%;
+    }
+</style>
 
 @endpush
 
 @section('content')
 
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <!-- Page-header start -->
-                                    <div class="page-header m-t-30">
+<div class="main-body">
+    <div class="page-wrapper">
+        <!-- Page-header start -->
+        <div class="page-header m-t-30">
 
-                                    </div>
-                                    <!-- Page-header end -->
-                                    <!-- Page body start -->
-                                    <div class="page-body">
-                                        <div class="row">
+        </div>
+        <!-- Page-header end -->
+        <!-- Page body start -->
+        <div class="page-body">
+            <div class="row">
 
-                                            <div class="col-lg-12">
-                                                <!-- Default card start -->
-                                                  <!-- Zero config.table start -->
-                                                <div class="card">
-                                                    <div class="card-header">
+                <div class="col-lg-12">
+                    <!-- Default card start -->
+                    <!-- Zero config.table start -->
+                    <div class="card">
+                        <div class="card-header">
 
-                                                    </div>
-                                                    <div class="card-block" style="margin-top: -30px;">
-                                                        <div id="map"></div>
-                                                    </div>
-                                                </div>
-                                            <!-- Zero config.table end -->
-                                            <!-- Default ordering table start -->
-                                                <!-- Default card end -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Page body end -->
-                                </div>
-                            </div>
+                        </div>
+                        <div class="card-block" style="margin-top: -30px;">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <!-- Zero config.table end -->
+                    <!-- Default ordering table start -->
+                    <!-- Default card end -->
+                </div>
+            </div>
+        </div>
+        <!-- Page body end -->
+    </div>
+</div>
 @endsection
 
 @push('scripts')
 
-    <script
-    src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""
-    ></script>
-        <script src="{{ asset('leafletjs/leaflet.markercluster.js')}}"></script>
-        <script src="{{ asset('leafletjs/leaflet.groupedlayercontrol.js')}}"></script>
-        <script src="{{ asset('leafletjs/leaflet-search.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/Leaflet.draw.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/Leaflet.Draw.Event.js')}}"></script>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script src="{{ asset('leafletjs/leaflet.markercluster.js')}}"></script>
+<script src="{{ asset('leafletjs/leaflet.groupedlayercontrol.js')}}"></script>
+<script src="{{ asset('leafletjs/leaflet-search.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/Leaflet.draw.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/Leaflet.Draw.Event.js')}}"></script>
 
-        <script src="{{ asset('Leaflet.draw-develop/src/Toolbar.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/Tooltip.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/Toolbar.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/Tooltip.js')}}"></script>
 
-        <script src="{{ asset('Leaflet.draw-develop/src/ext/GeometryUtil.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/ext/LatLngUtil.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/ext/LineUtil.Intersect.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/ext/Polygon.Intersect.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/ext/Polyline.Intersect.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/ext/TouchEvents.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/ext/GeometryUtil.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/ext/LatLngUtil.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/ext/LineUtil.Intersect.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/ext/Polygon.Intersect.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/ext/Polyline.Intersect.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/ext/TouchEvents.js')}}"></script>
 
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/DrawToolbar.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Feature.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.SimpleShape.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Polyline.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Marker.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Circle.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.CircleMarker.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Polygon.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Rectangle.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/DrawToolbar.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Feature.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.SimpleShape.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Polyline.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Marker.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Circle.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.CircleMarker.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Polygon.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/draw/handler/Draw.Rectangle.js')}}"></script>
 
 
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/EditToolbar.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/EditToolbar.Edit.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/EditToolbar.Delete.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/EditToolbar.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/EditToolbar.Edit.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/EditToolbar.Delete.js')}}"></script>
 
-        <script src="{{ asset('Leaflet.draw-develop/src/Control.Draw.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/Control.Draw.js')}}"></script>
 
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Poly.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.SimpleShape.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Rectangle.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Marker.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.CircleMarker.js')}}"></script>
-        <script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Circle.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Poly.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.SimpleShape.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Rectangle.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Marker.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.CircleMarker.js')}}"></script>
+<script src="{{ asset('Leaflet.draw-develop/src/edit/handler/Edit.Circle.js')}}"></script>
 
 
-    <script>
-
-        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+<script>
+    var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
             'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             mbUrl =
-            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+            'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGFkaHVrYSIsImEiOiJjbTRyc3MwaWYwODh6MnJwdWFidDVnOWt0In0.8V4BeVosj-lIaDwiewQNDQ';
         var satellite = L.tileLayer(mbUrl, {
                 id: 'mapbox/satellite-v9',
                 tileSize: 512,
@@ -277,7 +272,7 @@
 
                 markersLayer.addLayer(marker);
         }
-    </script>
+</script>
 
 
 @endpush
